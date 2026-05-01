@@ -6,7 +6,7 @@
 // ============================================
 // Konfigurasi
 // ============================================
-const API_URL = 'http://localhost:3000/api/notes';
+const API_URL = 'https://be-tugas3-tcc-177-385639935267.us-central1.run.app';
 
 // State
 let allNotes = [];
