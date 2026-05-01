@@ -6,7 +6,7 @@
 // ============================================
 // Konfigurasi
 // ============================================
-const API_URL = 'https://be-tugas3-tcc-177-385639935267.us-central1.run.app';
+const API_URL = 'https://be-tugas3-tcc-177-385639935267.us-central1.run.app/api/notes';
 
 // State
 let allNotes = [];
