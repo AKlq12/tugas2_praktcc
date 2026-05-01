@@ -4,7 +4,7 @@
   "description": "Frontend untuk Aplikasi Notes - Tugas 2 Praktikum TCC",
   "private": true,
   "scripts": {
-    "start": "serve -s . -l 3000",
+    "start": "serve -s .",
     "dev": "serve -s . -l 3000"
   },
   "dependencies": {
