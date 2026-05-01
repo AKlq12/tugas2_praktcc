@@ -60,16 +60,22 @@ async function fetchNotes() {
         const response = await fetch(API_URL);
         const result = await response.json();
 
-        if (result.success) {
+        // Tambahkan pengecekan Array.isArray
+        if (result.success && Array.isArray(result.data)) {
             allNotes = result.data;
             renderNotes(allNotes);
             updateStats(allNotes);
         } else {
-            showToast('Gagal memuat catatan', 'error');
+            // Jika success tapi data bukan array, atau success false
+            allNotes = []; // Reset ke array kosong agar tidak error
+            renderNotes(allNotes); 
+            showToast(result.message || 'Gagal memuat catatan', 'error');
         }
     } catch (error) {
         console.error('Error fetching notes:', error);
-        showToast('Tidak bisa terhubung ke server. Pastikan backend berjalan di port 3000.', 'error');
+        allNotes = []; // Pastikan array kosong jika koneksi putus
+        renderNotes(allNotes);
+        showToast('Tidak bisa terhubung ke server', 'error');
     } finally {
         showLoading(false);
     }
@@ -78,7 +84,9 @@ async function fetchNotes() {
 // ============================================
 // Render daftar catatan
 // ============================================
-function renderNotes(notes) {
+function renderNotes(notes = []) {
+    if (!notes) notes = [];
+    
     notesGrid.innerHTML = '';
 
     if (notes.length === 0) {
