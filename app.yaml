@@ -1,5 +1,5 @@
 runtime: nodejs20
-service: default
+service: fe-123230177-tugas3
 
 # Tambahkan ini supaya hemat (untuk testing)
 automatic_scaling:
